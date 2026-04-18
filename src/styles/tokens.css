@@ -1,0 +1,141 @@
+/* =========================================================
+ * TinDo — Design Tokens (Obsidian + Jade YaaX)
+ *
+ * Princípios:
+ * - Dark-first (tela à noite, foco, celular na mão).
+ * - Um único accent: Jade (#198B74 / #2CAF93). Usar com parcimônia.
+ * - Superfícies são variações de Obsidian — nunca preto puro.
+ * - Sóbrio por padrão, celebrativo em conclusão.
+ * ========================================================= */
+
+:root {
+  /* ---------- Obsidian: background & neutrals ---------- */
+  --obsidian-50: #f6f7f9;
+  --obsidian-100: #e9ecf1;
+  --obsidian-200: #c8ceda;
+  --obsidian-300: #93a0b4;
+  --obsidian-400: #5d6e88;
+  --obsidian-500: #3a4b63;
+  --obsidian-600: #2b394d;
+  --obsidian-700: #1f2a3b;
+  --obsidian-800: #141c2b;
+  --obsidian-900: #0b1220;
+  --obsidian-950: #060a14;
+
+  /* ---------- Jade YaaX: accent ---------- */
+  --jade-50: #e8f8f3;
+  --jade-100: #c6eee0;
+  --jade-200: #8fddc1;
+  --jade-300: #5bcba5;
+  --jade-400: #33ba8f;
+  --jade-500: #2caf93; /* YaaX light */
+  --jade-600: #198b74; /* YaaX primary */
+  --jade-700: #136f5c;
+  --jade-800: #0e5546;
+  --jade-900: #083b30;
+  --jade-950: #042017;
+
+  /* ---------- Semânticos ---------- */
+  --color-bg: var(--obsidian-900);
+  --color-bg-elevated: var(--obsidian-800);
+  --color-surface: var(--obsidian-800);
+  --color-surface-2: var(--obsidian-700);
+  --color-border: var(--obsidian-600);
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-fg: var(--obsidian-50);
+  --color-fg-muted: var(--obsidian-300);
+  --color-fg-subtle: var(--obsidian-400);
+
+  --color-accent: var(--jade-500);
+  --color-accent-hover: var(--jade-400);
+  --color-accent-strong: var(--jade-600);
+  --color-accent-fg: #ffffff;
+
+  /* ---------- Swipe direction semantics ---------- */
+  --color-swipe-skip: #f5a524; /* pra trás: pular */
+  --color-swipe-back: var(--jade-500); /* pra frente: voltar */
+  --color-swipe-postpone-auto: #8b5cf6; /* pra baixo: adiar auto */
+  --color-swipe-postpone-manual: #3e95ff; /* pra cima: adiar manual */
+
+  /* ---------- Status ---------- */
+  --color-danger: #e5484d;
+  --color-warning: #f5a524;
+  --color-success: var(--jade-500);
+  --color-info: #3e95ff;
+
+  /* ---------- Priority heat (p1..p4) ---------- */
+  --prio-1: #e5484d; /* afeta sono */
+  --prio-2: #f5a524; /* afeta rotina */
+  --prio-3: #3e95ff; /* bom ROI */
+  --prio-4: var(--obsidian-400); /* outras */
+
+  /* ---------- Gradientes ---------- */
+  --gradient-aurora: radial-gradient(
+      at 10% 0%,
+      rgba(44, 175, 147, 0.18),
+      transparent 40%
+    ),
+    radial-gradient(at 90% 20%, rgba(25, 139, 116, 0.1), transparent 40%),
+    linear-gradient(180deg, var(--obsidian-900), var(--obsidian-950));
+  --gradient-jade: linear-gradient(135deg, var(--jade-500), var(--jade-600));
+  --gradient-jade-soft: linear-gradient(
+    135deg,
+    rgba(44, 175, 147, 0.18),
+    rgba(25, 139, 116, 0.05)
+  );
+  --gradient-panel: linear-gradient(
+    180deg,
+    var(--obsidian-800),
+    var(--obsidian-900)
+  );
+  --gradient-card: linear-gradient(
+    180deg,
+    var(--obsidian-700),
+    var(--obsidian-800) 80%
+  );
+  --gradient-glow: radial-gradient(
+    circle at center,
+    rgba(91, 203, 165, 0.35),
+    transparent 60%
+  );
+
+  /* ---------- Sombras ---------- */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.28);
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.28),
+    0 8px 24px rgba(0, 0, 0, 0.22);
+  --shadow-card: 0 2px 4px rgba(0, 0, 0, 0.3),
+    0 24px 48px rgba(0, 0, 0, 0.35);
+  --shadow-accent: 0 0 0 1px rgba(44, 175, 147, 0.35),
+    0 10px 30px rgba(44, 175, 147, 0.25);
+  --shadow-popover: 0 20px 60px rgba(0, 0, 0, 0.45),
+    0 2px 6px rgba(0, 0, 0, 0.4);
+
+  /* ---------- Radius ---------- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+
+  /* ---------- Typography ---------- */
+  --font-sans:
+    'Inter var', 'Inter', ui-sans-serif, system-ui, -apple-system,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, 'JetBrains Mono', Consolas, monospace;
+  --font-display: 'Inter var', 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  /* ---------- Motion ---------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-emphatic: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring-soft: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 140ms;
+  --duration-base: 240ms;
+  --duration-slow: 420ms;
+
+  /* ---------- Gestos do Card ---------- */
+  --swipe-threshold-px: 96;
+  --swipe-velocity: 600;
+  --card-rotate-max: 14deg;
+}
