@@ -2,7 +2,7 @@
  * Tipos do banco Supabase.
  *
  * Regenerar após aplicar schema:
- *   bunx supabase gen types typescript --project-id jtpfauouvbtmhgrszybk \
+ *   bunx supabase gen types typescript --project-id cpcglkytrtkisrehqvsc \
  *     --schema public > src/types/db.ts
  *
  * Stub manual que espelha docs/01-schema.sql. Usa o formato esperado por

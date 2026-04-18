@@ -30,7 +30,7 @@ CLAUDE.md do SeuCamarão movido pra `_REF_CLAUDE_seucamarao.md` como referência
 | Zustand 5 | Pedido pelo user; store simples |
 | Framer Motion 11 | Pedido pelo user; gestos sólidos |
 | Tone.js | Pedido pelo user; áudio feedback |
-| Supabase existente (`jtpfauouvbtmhgrszybk`) | User já criou; reaproveitamos |
+| Supabase existente (`cpcglkytrtkisrehqvsc`) | User já criou; reaproveitamos |
 | Auth: Magic Link email (NÃO WhatsApp Z-API na Fase 0) | WhatsApp requer config extra, não é caminho crítico pro MVP. OTP WhatsApp vira Fase 6+ |
 | Score determinístico em `lib/score.ts` | Fiel ao princípio "humano julga, não a IA"; IA só inputa atributos |
 | RLS estrita + soft-delete | Boa prática do SeuCamarão que vale a pena manter |
@@ -129,7 +129,7 @@ tindo2/
 | PWA manifest | ✅ Pronto | Falta gerar ícones 192/512 |
 | `bun install` | ⏳ Pendente | Rodar localmente (requer rede) |
 | Schema aplicado no Supabase | ⏳ Pendente humano | `docs/01-schema.sql` |
-| Anon key em `.env.local` | ⏳ Pendente humano | `https://supabase.com/dashboard/project/jtpfauouvbtmhgrszybk/settings/api` |
+| Anon key em `.env.local` | ⏳ Pendente humano | `https://supabase.com/dashboard/project/cpcglkytrtkisrehqvsc/settings/api` |
 | Redirect URLs Supabase | ⏳ Pendente humano | Magic link redireciona |
 | Deploy | ⏳ Pendente humano | Cloudflare Pages ou Vercel |
 | Estratégia de repo | ⏳ Pendente humano | Force-push / branch v2 / novo repo |
@@ -175,7 +175,7 @@ tindo2/
 
 ### Estrutura
 ✅ GitHub existente (`yaaxtech/tindo`) — estratégia de push em §5.
-✅ Supabase existente (`jtpfauouvbtmhgrszybk`) — aplicar schema manualmente.
+✅ Supabase existente (`cpcglkytrtkisrehqvsc`) — aplicar schema manualmente.
 ✅ Stack travada exatamente como pedido.
 ✅ Design Obsidian + Jade YaaX com variáveis CSS.
 ✅ Clean, minimalista, sóbrio — cor verde só em accent.

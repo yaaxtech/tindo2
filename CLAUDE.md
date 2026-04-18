@@ -84,7 +84,7 @@ Não invente decisões já documentadas. Se um doc está desatualizado, atualize
 | Animação | Framer Motion 11 |
 | Áudio | Tone.js (lazy) |
 | Validação | Zod |
-| Banco | Supabase (Postgres 15) — project `jtpfauouvbtmhgrszybk` |
+| Banco | Supabase (Postgres 15) — project `cpcglkytrtkisrehqvsc` |
 | Auth | Supabase Magic Link (OTP email) |
 | PWA | `next-pwa` |
 | Deploy | Cloudflare Pages OU Vercel (decidir antes de Fase 1) |
@@ -193,6 +193,6 @@ Usuário ativou auto-mode + auto-aceite. Siga:
 ## REFERÊNCIA EXTERNA
 
 - Repo: https://github.com/yaaxtech/tindo
-- Supabase: https://supabase.com/dashboard/project/jtpfauouvbtmhgrszybk
+- Supabase: https://supabase.com/dashboard/project/cpcglkytrtkisrehqvsc
 - Email do owner: `falecomseucamarao@gmail.com`
 - Projeto anterior (histórico, não usar código): `/Users/maiaemanuel/tindo antigo/`

@@ -50,5 +50,5 @@ Obsidian (fundo) + Jade YaaX (accent `#198B74` / `#2CAF93`). Dark-first. Clean, 
 ## Repositório
 
 - GitHub: https://github.com/yaaxtech/tindo
-- Supabase: project `jtpfauouvbtmhgrszybk`
+- Supabase: project `cpcglkytrtkisrehqvsc`
 - Owner: falecomseucamarao@gmail.com

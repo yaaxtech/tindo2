@@ -1,7 +1,7 @@
 -- =============================================================
 -- TinDo — Schema Supabase (PostgreSQL 15)
 --
--- Executar em: https://supabase.com/dashboard/project/jtpfauouvbtmhgrszybk/sql/new
+-- Executar em: https://supabase.com/dashboard/project/cpcglkytrtkisrehqvsc/sql/new
 --
 -- Princípios:
 -- - Single-tenant: cada linha tem user_id = auth.uid(), RLS estrita.

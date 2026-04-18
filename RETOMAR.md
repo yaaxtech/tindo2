@@ -30,18 +30,18 @@
 ## ⏳ Próximos passos — humano age (ordem sugerida)
 
 ### 1. Copiar anon key do Supabase pro `.env.local` (~2 min)
-1. Abrir https://supabase.com/dashboard/project/jtpfauouvbtmhgrszybk/settings/api
+1. Abrir https://supabase.com/dashboard/project/cpcglkytrtkisrehqvsc/settings/api
 2. Copiar **anon public** key
 3. Criar `/Users/maiaemanuel/tindo2/.env.local`:
 ```
-NEXT_PUBLIC_SUPABASE_URL=https://jtpfauouvbtmhgrszybk.supabase.co
+NEXT_PUBLIC_SUPABASE_URL=https://cpcglkytrtkisrehqvsc.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...sua-anon-key...
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 NEXT_PUBLIC_APP_ENV=development
 ```
 
 ### 2. Aplicar schema no Supabase (~5 min)
-1. Abrir https://supabase.com/dashboard/project/jtpfauouvbtmhgrszybk/sql/new
+1. Abrir https://supabase.com/dashboard/project/cpcglkytrtkisrehqvsc/sql/new
 2. Colar **TODO** o conteúdo de `docs/01-schema.sql`
 3. **Run** → verificar que não dá erro
 4. Validar em **Table Editor**: deve listar `users`, `projects`, `tasks`, `tags`, `task_tags`, `task_dependencies`, `score_weights`, `reviews`, `todoist_sync_state`, `ai_calibrations` com **cadeado (RLS ativo)**
@@ -49,7 +49,7 @@ NEXT_PUBLIC_APP_ENV=development
 **Se já aplicou o schema antigo:** esse novo pode dar conflito em alguns objetos. Solução segura: em um novo SQL, `drop schema public cascade; create schema public;` antes de rodar (⚠️ destrói dados existentes — só faça se for desenvolvimento sem dados reais).
 
 ### 3. Configurar Redirect URLs do Supabase Auth (~1 min)
-1. Abrir https://supabase.com/dashboard/project/jtpfauouvbtmhgrszybk/auth/url-configuration
+1. Abrir https://supabase.com/dashboard/project/cpcglkytrtkisrehqvsc/auth/url-configuration
 2. **Site URL**: `http://localhost:3000`
 3. **Redirect URLs** (adicionar ambos):
    - `http://localhost:3000/**`
@@ -73,7 +73,7 @@ bun dev
 1. https://vercel.com/new → Import `yaaxtech/tindo` (ou o repo que decidir em §7)
 2. Framework: Next.js (detecta automaticamente)
 3. Environment Variables (Production):
-   - `NEXT_PUBLIC_SUPABASE_URL=https://jtpfauouvbtmhgrszybk.supabase.co`
+   - `NEXT_PUBLIC_SUPABASE_URL=https://cpcglkytrtkisrehqvsc.supabase.co`
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY=<a real>`
    - `NEXT_PUBLIC_APP_URL=https://tindo.vercel.app`
    - `NEXT_PUBLIC_APP_ENV=production`

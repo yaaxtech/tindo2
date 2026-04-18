@@ -13,7 +13,7 @@ TinDo é um app de tarefas em cards swipeáveis. IA prioriza, gamificação reco
 | Áudio | Tone.js (lazy) | Feedback sonoro pós-conclusão |
 | Estado | Zustand 5 | Global leve; nada de Redux |
 | Validação | Zod | Env + payloads externos (Todoist, IA) |
-| Banco | Supabase (Postgres 15) + RLS | `jtpfauouvbtmhgrszybk` |
+| Banco | Supabase (Postgres 15) + RLS | `cpcglkytrtkisrehqvsc` |
 | Auth | Supabase Magic Link | OTP email; WhatsApp fica pra v2 |
 | Deploy frontend | Cloudflare Pages OU Vercel | Decisão de manhã (user) |
 | PWA | `next-pwa` | Instalável mobile + offline cache |
