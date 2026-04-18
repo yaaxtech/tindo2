@@ -1,6 +1,28 @@
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
-export default function HomePage() {
+interface Props {
+  searchParams: Promise<Record<string, string | undefined>>;
+}
+
+export default async function HomePage({ searchParams }: Props) {
+  const params = await searchParams;
+
+  // Se o Supabase caiu aqui com ?code=... (Site URL sem /auth/callback),
+  // passa a bola pro callback que faz exchangeCodeForSession.
+  if (params.code) {
+    const qs = new URLSearchParams();
+    qs.set('code', params.code);
+    if (params.next) qs.set('next', params.next);
+    redirect(`/auth/callback?${qs.toString()}`);
+  }
+
+  // Erro vindo do Supabase verify (ex: link expirado)
+  if (params.error || params.error_description) {
+    const msg = params.error_description ?? params.error ?? 'auth';
+    redirect(`/login?error=${encodeURIComponent(msg)}`);
+  }
+
   return (
     <main className="relative flex min-h-dvh flex-col items-center justify-center gap-10 px-6 py-16">
       <div className="pointer-events-none absolute inset-0 -z-10 opacity-80 [background:var(--gradient-aurora)]" />
@@ -75,3 +97,6 @@ export default function HomePage() {
     </main>
   );
 }
+
+// Search params mudam por request — evita cache estático.
+export const dynamic = 'force-dynamic';
