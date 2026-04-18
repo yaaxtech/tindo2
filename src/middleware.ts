@@ -3,8 +3,15 @@ import { NextResponse, type NextRequest } from 'next/server';
 
 const PROTECTED = ['/feed', '/ajustes', '/historico', '/calibrar'];
 
+// DEV-ONLY: pula auth quando NEXT_PUBLIC_DEV_SKIP_AUTH=true. Nunca ligar em prod.
+const DEV_SKIP = process.env.NEXT_PUBLIC_DEV_SKIP_AUTH === 'true';
+
 export async function middleware(req: NextRequest) {
   const res = NextResponse.next({ request: req });
+
+  if (DEV_SKIP) {
+    return res;
+  }
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
