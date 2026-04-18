@@ -17,7 +17,9 @@
 - Schema SQL completo com 10 tabelas, RLS, triggers, 2 views
 - Services CRUD (tasks, projects, tags, reviews, weights)
 - Feed store Zustand
-- PWA manifest (ícones PENDENTES)
+- PWA manifest + ícones 192/512 + apple-touch + favicon (gerados via qlmanage + sips)
+- **`bun install` ✓**, **typecheck ✓**, **lint ✓**, **build ✓** (5 rotas + middleware)
+- **git init + commit inicial** (hash `11c9a22`, branch `main` local, sem remote ainda)
 - CLAUDE.md, PLAN.md, 10 docs em `docs/` (arquitetura, score, roadmap, kpis, card, neuro, interação, todoist, ia)
 - Caffeinate rodando (6h) pra MacBook não dormir
 
@@ -27,15 +29,7 @@
 
 ## ⏳ Próximos passos — humano age (ordem sugerida)
 
-### 1. Instalar dependências (~2 min)
-```bash
-cd /Users/maiaemanuel/tindo2
-bun install
-```
-
-Se falhar, me avise — alguma versão pode ter quebrado.
-
-### 2. Copiar anon key do Supabase pro `.env.local` (~2 min)
+### 1. Copiar anon key do Supabase pro `.env.local` (~2 min)
 1. Abrir https://supabase.com/dashboard/project/jtpfauouvbtmhgrszybk/settings/api
 2. Copiar **anon public** key
 3. Criar `/Users/maiaemanuel/tindo2/.env.local`:
@@ -46,7 +40,7 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 NEXT_PUBLIC_APP_ENV=development
 ```
 
-### 3. Aplicar schema no Supabase (~5 min)
+### 2. Aplicar schema no Supabase (~5 min)
 1. Abrir https://supabase.com/dashboard/project/jtpfauouvbtmhgrszybk/sql/new
 2. Colar **TODO** o conteúdo de `docs/01-schema.sql`
 3. **Run** → verificar que não dá erro
@@ -54,14 +48,14 @@ NEXT_PUBLIC_APP_ENV=development
 
 **Se já aplicou o schema antigo:** esse novo pode dar conflito em alguns objetos. Solução segura: em um novo SQL, `drop schema public cascade; create schema public;` antes de rodar (⚠️ destrói dados existentes — só faça se for desenvolvimento sem dados reais).
 
-### 4. Configurar Redirect URLs do Supabase Auth (~1 min)
+### 3. Configurar Redirect URLs do Supabase Auth (~1 min)
 1. Abrir https://supabase.com/dashboard/project/jtpfauouvbtmhgrszybk/auth/url-configuration
 2. **Site URL**: `http://localhost:3000`
 3. **Redirect URLs** (adicionar ambos):
    - `http://localhost:3000/**`
    - `https://tindo.vercel.app/**` (ou domínio Cloudflare)
 
-### 5. Rodar local e testar (~3 min)
+### 4. Rodar local e testar (~3 min)
 ```bash
 cd /Users/maiaemanuel/tindo2
 bun dev
@@ -73,7 +67,7 @@ bun dev
 - Testar: setas ← → ↑ ↓, Enter, arrastar no touchpad
 - Som: clica "Concluir" → deve tocar arpejo (navegador precisa de interação pra liberar áudio)
 
-### 6. Decidir host + deploy (~10 min)
+### 5. Decidir host + deploy (~10 min)
 
 #### Opção A — Vercel (recomendado pra rapidez)
 1. https://vercel.com/new → Import `yaaxtech/tindo` (ou o repo que decidir em §7)
@@ -92,48 +86,51 @@ bun dev
 4. Build output: `.next`
 5. Precisa do adaptador `@cloudflare/next-on-pages` (adicionar depois).
 
-### 7. Decidir estratégia do repo GitHub
+### 6. Decidir estratégia do repo GitHub
 Repo `yaaxtech/tindo` já tem commits da versão antiga. Três opções:
 
 - **A)** Force-push substituindo main (limpo mas destrutivo) → me fala pra eu rodar.
-- **B)** Criar branch `v2` e promover pra default → **recomendado**. Comando:
+- **B)** Push pra nova branch `v2` e promover pra default no GitHub → **recomendado**:
 ```bash
 cd /Users/maiaemanuel/tindo2
-git init -b main-v2
-git add .
-git commit -m "feat: bootstrap TinDo v2 (Next 15 + docs + score + swipe)"
+git branch -M main-v2
 git remote add origin https://github.com/yaaxtech/tindo.git
 git push -u origin main-v2
 # Depois no GitHub: Settings → Branches → Default branch → main-v2
 ```
-- **C)** Novo repo `yaaxtech/tindo-v2` → criar e pushar.
+- **C)** Novo repo `yaaxtech/tindo-v2`:
+```bash
+gh repo create yaaxtech/tindo-v2 --public --description "TinDo v2 (clean bootstrap)"
+cd /Users/maiaemanuel/tindo2
+git remote add origin https://github.com/yaaxtech/tindo-v2.git
+git push -u origin main
+```
 
 Me avise qual escolheu e eu rodo (exceto A, que precisa sua confirmação explícita pelo auto-mode).
 
-### 8. Gerar ícones PWA (~5 min)
-Placeholder foi criado no manifest. Precisa criar:
-- `public/icons/icon-192.png` (192×192, fundo #0B1220, símbolo jade)
-- `public/icons/icon-512.png` (512×512 idem)
-
-Opções:
-- Design final (Figma).
-- Placeholder rápido: posso gerar 2 PNGs programaticamente (escreve "T" jade em fundo obsidian).
-- Me fala se quer que eu gere placeholders.
+### 7. (Opcional) Re-gerar ícones com design final
+Os ícones em `public/icons/` são placeholders bonitos (T jade em fundo obsidian, gerados via qlmanage do SVG + sips). Se você tiver design definitivo, substitua:
+- `public/icons/icon-192.png`
+- `public/icons/icon-512.png`
+- `public/icons/apple-touch-icon.png`
+- `public/favicon.png`
 
 ---
 
 ## 🎯 Critério de "Fase 0 pronta"
 
-- [ ] `bun install` sem erro
+- [x] `bun install` sem erro (692 pacotes)
+- [x] Typecheck + Lint + Build verdes
+- [x] Ícones PWA gerados (192/512 + apple-touch + favicon)
+- [x] Commit inicial local (hash `11c9a22`)
 - [ ] `.env.local` preenchido
 - [ ] Schema aplicado, RLS ativo
 - [ ] Redirect URLs configuradas
 - [ ] `bun dev` → landing carrega, login envia email, feed com cards demo
 - [ ] Deploy verde em Vercel ou Cloudflare
 - [ ] Repo estratégia decidida e pushada
-- [ ] Ícones PWA gerados
 
-Quando os 8 check ✓, abre Fase 1 em `docs/03-roadmap.md`.
+Quando os 10 check ✓, abre Fase 1 em `docs/03-roadmap.md`.
 
 ---
 
