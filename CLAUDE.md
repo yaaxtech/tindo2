@@ -2,6 +2,7 @@
 
 > Diretivas vinculantes pro agente Claude Code neste repositório.
 > Em caso de conflito entre este arquivo e um pedido pontual do usuário: **pergunte antes de violar**.
+> Critérios gerais de colaboração do grupo: `CONTEXTO_GRUPO.md` (não substitui os docs deste produto).
 
 ---
 
